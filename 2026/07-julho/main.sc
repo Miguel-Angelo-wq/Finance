@@ -4,7 +4,7 @@
 newsheet "Sheet1"
 movetosheet "Sheet1"
 offscr_sc_cols 0
-offscr_sc_rows 46
+offscr_sc_rows 1
 nb_frozen_rows 0
 nb_frozen_cols 0
 nb_frozen_screenrows 0
@@ -28,10 +28,11 @@ rightstring A8 = "Balé"
 let B8 = 260
 rightstring A9 = "Terapia"
 let B9 = 200
+rightstring A10 = "Fundo multa aluguel"
 rightstring A14 = "Total"
 let B14 = @sum(B5:B9)
 rightstring A16 = "_SALÁRIO PÓS-FIXO"
-let B16 = B2-B10
+let B16 = B2-B14
 rightstring A19 = "_SUPERMERCADO"
 rightstring A20 = "Arroz (Atacadão)"
 let B20 = 0
@@ -57,5 +58,5 @@ rightstring A56 = "_TRANSPORTE"
 rightstring A57 = "Uber"
 rightstring A58 = "Ônibus"
 rightstring A61 = "_SALDO FINAL"
-goto A61
+goto B13
 movetosheet "Sheet1"
