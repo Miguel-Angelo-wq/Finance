@@ -4,7 +4,7 @@
 newsheet "Sheet1"
 movetosheet "Sheet1"
 offscr_sc_cols 0
-offscr_sc_rows 21
+offscr_sc_rows 46
 nb_frozen_rows 0
 nb_frozen_cols 0
 nb_frozen_screenrows 0
@@ -28,34 +28,34 @@ rightstring A8 = "Balé"
 let B8 = 260
 rightstring A9 = "Terapia"
 let B9 = 200
-rightstring A10 = "Total"
-let B10 = @sum(B5:B9)
-rightstring A12 = "_SALÁRIO PÓS-FIXO"
-let B12 = B2-B10
-rightstring A15 = "_SUPERMERCADO"
-rightstring A16 = "Arroz (Atacadão)"
-let B16 = 0
-rightstring A17 = "Far. mand. (Atacadão)"
-let B17 = 0
-rightstring A18 = "Alface"
-let B18 = 11.38
-rightstring A19 = "Tomate"
-let B19 = 1.84
-rightstring A20 = "Pão Francês"
-let B20 = 2.98
-rightstring A21 = "Garrafão água"
+rightstring A14 = "Total"
+let B14 = @sum(B5:B9)
+rightstring A16 = "_SALÁRIO PÓS-FIXO"
+let B16 = B2-B10
+rightstring A19 = "_SUPERMERCADO"
+rightstring A20 = "Arroz (Atacadão)"
+let B20 = 0
+rightstring A21 = "Far. mand. (Atacadão)"
 let B21 = 0
-rightstring A22 = "Peito de Frango"
-let B22 = 0
-rightstring A23 = "Pão (Padaria aqui perto)"
-let B23 = 0
-rightstring A24 = "Coxa-Sobrecoxa (Baratão)"
-let B24 = 0
-rightstring A28 = "_LIMPEZA"
-rightstring A36 = "Higiene"
-rightstring A44 = "_TRANSPORTE"
-rightstring A45 = "Uber"
-rightstring A46 = "Ônibus"
-rightstring A49 = "_Saldo Final"
-goto A36
+rightstring A22 = "Alface"
+let B22 = 11.38
+rightstring A23 = "Tomate"
+let B23 = 1.84
+rightstring A24 = "Pão Francês"
+let B24 = 2.98
+rightstring A25 = "Garrafão água"
+let B25 = 0
+rightstring A26 = "Peito de Frango"
+let B26 = 0
+rightstring A27 = "Pão (Padaria aqui perto)"
+let B27 = 0
+rightstring A28 = "Coxa-Sobrecoxa (Baratão)"
+let B28 = 0
+rightstring A40 = "_LIMPEZA"
+rightstring A48 = "_HIGIENE"
+rightstring A56 = "_TRANSPORTE"
+rightstring A57 = "Uber"
+rightstring A58 = "Ônibus"
+rightstring A61 = "_SALDO FINAL"
+goto A61
 movetosheet "Sheet1"
