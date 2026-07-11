@@ -4,59 +4,59 @@
 newsheet "Sheet1"
 movetosheet "Sheet1"
 offscr_sc_cols 0
-offscr_sc_rows 1
+offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
 nb_frozen_screenrows 0
 nb_frozen_screencols 0
 format A 24 2 0
-format C 24 2 0
-rightstring A0 = "_RECEITAS"
+format C 19 2 0
+format E 24 2 0
+format J 6 2 0
+format K 12 2 0
+rightstring A0 = "RECEITAS"
+rightstring B0 = "valor"
+rightstring C0 = "DESPESAS FIXAS"
+rightstring D0 = "valor"
+rightstring E0 = "COMIDA"
+rightstring F0 = "valor"
+rightstring G0 = "LIMPEZA"
+rightstring H0 = "valor"
+rightstring I0 = "HIGIENE"
+rightstring J0 = "valor"
+rightstring K0 = "TRANSPORTE"
+rightstring L0 = "valor"
 rightstring A1 = "Salário"
 let B1 = 4000
-rightstring A2 = "Total Receitas"
-let B2 = @sum(B1:B1)
-rightstring A4 = "_DESPESAS FIXAS"
-rightstring A5 = "Aluguel"
-let B5 = 1800
-rightstring A6 = "Energia"
-let B6 = 0
-rightstring C6 = "(falta colocar energia)"
-rightstring A7 = "Imposto PJ"
-let B7 = 86.05
-rightstring A8 = "Balé"
-let B8 = 260
-rightstring A9 = "Terapia"
-let B9 = 200
-rightstring A10 = "Fundo multa aluguel"
-rightstring A14 = "Total"
-let B14 = @sum(B5:B9)
-rightstring A16 = "_SALÁRIO PÓS-FIXO"
-let B16 = B2-B14
-rightstring A19 = "_SUPERMERCADO"
-rightstring A20 = "Arroz (Atacadão)"
-let B20 = 0
-rightstring A21 = "Far. mand. (Atacadão)"
-let B21 = 0
-rightstring A22 = "Alface"
-let B22 = 11.38
-rightstring A23 = "Tomate"
-let B23 = 1.84
-rightstring A24 = "Pão Francês"
-let B24 = 2.98
-rightstring A25 = "Garrafão água"
-let B25 = 0
-rightstring A26 = "Peito de Frango"
-let B26 = 0
-rightstring A27 = "Pão (Padaria aqui perto)"
-let B27 = 0
-rightstring A28 = "Coxa-Sobrecoxa (Baratão)"
-let B28 = 0
-rightstring A40 = "_LIMPEZA"
-rightstring A48 = "_HIGIENE"
-rightstring A56 = "_TRANSPORTE"
-rightstring A57 = "Uber"
-rightstring A58 = "Ônibus"
-rightstring A61 = "_SALDO FINAL"
-goto B13
+rightstring C1 = "Aluguel"
+let D1 = 1800
+rightstring E1 = "Alface"
+let F1 = 11.38
+rightstring K1 = "Uber"
+let L1 = 7.90
+rightstring C2 = "Imposto PJ"
+let D2 = 86.05
+rightstring E2 = "Tomate"
+let F2 = 1.84
+rightstring K2 = "Ônibus"
+let L2 = 0
+rightstring C3 = "Balé"
+let D3 = 260
+rightstring E3 = "Pão Francês"
+let F3 = 2.98
+rightstring C4 = "Terapia"
+let D4 = 200
+rightstring C5 = "Energia"
+let D5 = 0
+rightstring C6 = "Fundo multa aluguel"
+let D6 = 0
+rightstring A25 = "Total"
+let B25 = @sum(B1:B16)
+rightstring C25 = "Total"
+let D25 = @sum(D1:D16)
+rightstring E25 = "Total"
+let F25 = @sum(F1:F16)
+rightstring C26 = "Salario Pos Fixo"
+let D26 = B25-D25
+goto A0
 movetosheet "Sheet1"
