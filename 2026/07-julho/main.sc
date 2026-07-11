@@ -12,7 +12,7 @@ nb_frozen_screencols 0
 format A 14 2 0
 format E 19 2 0
 format F 19 2 0
-format G 11 2 0
+format G 24 2 0
 format H 24 2 0
 format M 11 2 0
 format N 12 2 0
@@ -33,6 +33,7 @@ rightstring N0 = "valor"
 rightstring O0 = "PAPELARIA"
 rightstring P0 = "valor"
 rightstring A1 = "RECEITAS"
+let B1 = @sum(D1:D50)
 rightstring C1 = "Salário"
 let D1 = 4000
 rightstring E1 = "Aluguel"
@@ -41,27 +42,39 @@ rightstring G1 = "Alface"
 let H1 = 11.38
 rightstring M1 = "Uber"
 let N1 = 7.9
+rightstring O1 = "Caderno"
+let P1 = 12
 rightstring A2 = "DESPESAS FIXAS"
+let B2 = @sum(F1:F50)
 rightstring E2 = "Imposto PJ"
 let F2 = 86.05
 rightstring G2 = "Tomate"
-let H2 = 1.84
+let H2 = 4.24
 rightstring M2 = "Ônibus"
 let N2 = 0
 rightstring A3 = "COMIDA"
+let B3 = @sum(H1:H50)
 rightstring E3 = "Balé"
 let F3 = 260
 rightstring G3 = "Pão Francês"
-let H3 = 2.98
+let H3 = 8.19
 rightstring A4 = "LIMPEZA"
+let B4 = @sum(J1:J50)
 rightstring E4 = "Terapia"
 let F4 = 200
+rightstring G4 = "Coxa-Sobrecoxa (Baratão)"
+let H4 = 45.23
 rightstring A5 = "HIGIENE"
+let B5 = @sum(L1:L50)
 rightstring E5 = "Energia"
 let F5 = 0
+rightstring G5 = "Colorau (Baratão)"
+let H5 = 1.69
 rightstring A6 = "TRANSPORTE"
+let B6 = @sum(N1:N50)
 rightstring E6 = "Fundo multa aluguel"
 let F6 = 0
 rightstring A7 = "PAPELARIA"
-goto A25
+let B7 = @sum(P1:P50)
+goto C5
 movetosheet "Sheet1"
