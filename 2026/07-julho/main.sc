@@ -9,54 +9,59 @@ nb_frozen_rows 0
 nb_frozen_cols 0
 nb_frozen_screenrows 0
 nb_frozen_screencols 0
-format A 24 2 0
-format C 19 2 0
-format E 24 2 0
-format J 6 2 0
-format K 12 2 0
-rightstring A0 = "RECEITAS"
+format A 14 2 0
+format E 19 2 0
+format F 19 2 0
+format G 11 2 0
+format H 24 2 0
+format M 11 2 0
+format N 12 2 0
+rightstring A0 = "Totais"
 rightstring B0 = "valor"
-rightstring C0 = "DESPESAS FIXAS"
+rightstring C0 = "RECEITAS"
 rightstring D0 = "valor"
-rightstring E0 = "COMIDA"
+rightstring E0 = "DESPESAS FIXAS"
 rightstring F0 = "valor"
-rightstring G0 = "LIMPEZA"
+rightstring G0 = "COMIDA"
 rightstring H0 = "valor"
-rightstring I0 = "HIGIENE"
+rightstring I0 = "LIMPEZA"
 rightstring J0 = "valor"
-rightstring K0 = "TRANSPORTE"
+rightstring K0 = "HIGIENE"
 rightstring L0 = "valor"
-rightstring A1 = "Salário"
-let B1 = 4000
-rightstring C1 = "Aluguel"
-let D1 = 1800
-rightstring E1 = "Alface"
-let F1 = 11.38
-rightstring K1 = "Uber"
-let L1 = 7.90
-rightstring C2 = "Imposto PJ"
-let D2 = 86.05
-rightstring E2 = "Tomate"
-let F2 = 1.84
-rightstring K2 = "Ônibus"
-let L2 = 0
-rightstring C3 = "Balé"
-let D3 = 260
-rightstring E3 = "Pão Francês"
-let F3 = 2.98
-rightstring C4 = "Terapia"
-let D4 = 200
-rightstring C5 = "Energia"
-let D5 = 0
-rightstring C6 = "Fundo multa aluguel"
-let D6 = 0
-rightstring A25 = "Total"
-let B25 = @sum(B1:B16)
-rightstring C25 = "Total"
-let D25 = @sum(D1:D16)
-rightstring E25 = "Total"
-let F25 = @sum(F1:F16)
-rightstring C26 = "Salario Pos Fixo"
-let D26 = B25-D25
-goto A0
+rightstring M0 = "TRANSPORTE"
+rightstring N0 = "valor"
+rightstring O0 = "PAPELARIA"
+rightstring P0 = "valor"
+rightstring A1 = "RECEITAS"
+rightstring C1 = "Salário"
+let D1 = 4000
+rightstring E1 = "Aluguel"
+let F1 = 1800
+rightstring G1 = "Alface"
+let H1 = 11.38
+rightstring M1 = "Uber"
+let N1 = 7.9
+rightstring A2 = "DESPESAS FIXAS"
+rightstring E2 = "Imposto PJ"
+let F2 = 86.05
+rightstring G2 = "Tomate"
+let H2 = 1.84
+rightstring M2 = "Ônibus"
+let N2 = 0
+rightstring A3 = "COMIDA"
+rightstring E3 = "Balé"
+let F3 = 260
+rightstring G3 = "Pão Francês"
+let H3 = 2.98
+rightstring A4 = "LIMPEZA"
+rightstring E4 = "Terapia"
+let F4 = 200
+rightstring A5 = "HIGIENE"
+rightstring E5 = "Energia"
+let F5 = 0
+rightstring A6 = "TRANSPORTE"
+rightstring E6 = "Fundo multa aluguel"
+let F6 = 0
+rightstring A7 = "PAPELARIA"
+goto A25
 movetosheet "Sheet1"
