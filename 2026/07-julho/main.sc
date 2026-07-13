@@ -3,7 +3,7 @@
 
 newsheet "Sheet1"
 movetosheet "Sheet1"
-offscr_sc_cols 0
+offscr_sc_cols 8
 offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
@@ -32,6 +32,8 @@ rightstring M0 = "TRANSPORTE"
 rightstring N0 = "valor"
 rightstring O0 = "PAPELARIA"
 rightstring P0 = "valor"
+rightstring Q0 = "PONTUAIS"
+rightstring R0 = "valor"
 rightstring A1 = "RECEITAS"
 let B1 = @sum(D1:D50)
 rightstring C1 = "Salário"
@@ -76,5 +78,5 @@ rightstring E6 = "Fundo multa aluguel"
 let F6 = 0
 rightstring A7 = "PAPELARIA"
 let B7 = @sum(P1:P50)
-goto C5
+goto R0
 movetosheet "Sheet1"

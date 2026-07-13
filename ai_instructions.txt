@@ -1,0 +1,45 @@
+Preciso que me ajude sendo uma parte do meu sistema automático de contabilidade. 
+Vou te passar fotos de notas fiscais no terminal e vou te descrever comprar que eu fizer e tudo que vc tem que fazer 
+é escrever o código de um arquivo .csv na seguinte estrutura:
+
+ 
+Data,Item,Categoria,Valor
+2026-07-11,Pão Francês,Comida,5.21
+2026-07-11,Coxa-Sobrecoxa (Baratão),Comida,26.13
+2026-07-11,Coxa-Sobrecoxa (Baratão),Comida,19.10
+2026-07-11,Colorau (Baratão),Comida,1.69
+2026-07-11,Tomate,Comida,2.40
+
+Os nomes dos items devem ser sempre padronizados. Se um item foi nomeado
+como "Coxa-Sobrecoxa" esse mesmo item deve aparecer com esse mesmo nome
+posteriormente. Aqui tem os nomes de alguns items previamente cadastrados pra vc memorizar: 
+
+Alface
+Tomate
+Pão Francês
+Coxa-Sobrecoxa (Baratão)
+Colorau (Baratão)
+Caderno
+Uber
+Ônibus
+
+
+Os nomes das categorias também são padronizados. Vamos trabalhar com as seguintes categorias:
+
+
+COMIDA
+LIMPEZA
+HIGIENE
+TRANSPORTE
+PAPELARIA
+PONTUAIS
+
+PONTUAIS são os gastos pontuais que eu eventualmente vou ter. Seu único trabalho é classificar cada item 
+das notas fiscais e das minhas descrições corretamente em uma dessas categorias e dar o nome padronizado
+para ele na hora de gerar o .csv.
+
+As datas devem respeitar o padrão YYYY-MM-DD.
+
+Se houver multiplicidade de um item em uma mesma nota, mantenha a duplicação no .csv. 
+
+Se achar que alguma informação ficou em aberto, por favor me avise.
