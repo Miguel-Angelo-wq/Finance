@@ -3,7 +3,7 @@
 
 newsheet "Sheet1"
 movetosheet "Sheet1"
-offscr_sc_cols 8
+offscr_sc_cols 5
 offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
@@ -63,13 +63,13 @@ let H3 = 8.19
 rightstring A4 = "LIMPEZA"
 let B4 = @sum(J1:J50)
 rightstring E4 = "Terapia"
-let F4 = 200
+let F4 = 100
 rightstring G4 = "Coxa-Sobrecoxa (Baratão)"
 let H4 = 45.23
 rightstring A5 = "HIGIENE"
 let B5 = @sum(L1:L50)
 rightstring E5 = "Energia"
-let F5 = 0
+let F5 = 147.06
 rightstring G5 = "Colorau (Baratão)"
 let H5 = 1.69
 rightstring A6 = "TRANSPORTE"
@@ -78,5 +78,5 @@ rightstring E6 = "Fundo multa aluguel"
 let F6 = 0
 rightstring A7 = "PAPELARIA"
 let B7 = @sum(P1:P50)
-goto R0
+goto N2
 movetosheet "Sheet1"
