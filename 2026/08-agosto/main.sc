@@ -111,12 +111,12 @@ let B12 = B1-@sum(B2:B10)
 rightstring G12 = "Garrafão de Água 20L"
 let H12 = 20
 rightstring G13 = "Prato de comida"
-let H13 = 18
+let H13 = 36
 rightstring G14 = "Farinha de Mandioca"
 let H14 = 8.78
 rightstring G15 = "Arroz Branco"
 let H15 = 8.28
 rightstring G16 = "Colorau"
 let H16 = 4.19
-goto H12
+goto A1
 movetosheet "Sheet1"
