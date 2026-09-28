@@ -48,6 +48,8 @@ rightstring M1 = "Uber"
 let N1 = 22
 rightstring O1 = "Caderno"
 let P1 = 0
+rightstring Q1 = "Baralhos (lenormand + comum)"
+let R1 = 41.89
 rightstring S1 = "(92) 99987-0831"
 let T1 = 30
 rightstring A2 = "DESPESAS FIXAS"
@@ -67,7 +69,7 @@ let H3 = 3.06
 rightstring A4 = "LIMPEZA"
 let B4 = @sum(J1:J50)
 rightstring E4 = "Terapia"
-let F4 = 0
+let F4 = 100
 rightstring G4 = "Coxa-Sobrecoxa (Baratão)"
 let H4 = 29.51
 rightstring A5 = "HIGIENE"
@@ -96,5 +98,5 @@ rightstring G9 = "Lanche"
 let H9 = 30.25
 rightstring A11 = "investimento"
 let B11 = B1-@sum(B2:B10)
-goto F6
+goto B11
 movetosheet "Sheet1"
