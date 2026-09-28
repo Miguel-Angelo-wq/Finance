@@ -1,15 +1,40 @@
 import csv
+import os
 import re
+import argparse
 
+def col2num(col):
+    """Converte letras de coluna do tipo A, B, Z, AA para número (1-indexed)."""
+    num = 0
+    for c in col.upper():
+        num = num * 26 + (ord(c) - ord('A') + 1)
+    return num
+
+def num2col(num):
+    """Converte número (1-indexed) para letras de coluna (A, B, Z, AA)."""
+    col = ""
+    while num > 0:
+        num, remainder = divmod(num - 1, 26)
+        col = chr(65 + remainder) + col
+    return col
+
+def next_col(col_str):
+    """Retorna a próxima coluna corretamente (ex: E -> F, Z -> AA)."""
+    return num2col(col2num(col_str) + 1)
 
 def parse_sc_file(filepath):
     """Lê o arquivo .sc e mapeia coordenadas (Letra, Número) para valores."""
+    if not os.path.exists(filepath):
+        # Se o arquivo .sc não existir, cria um arquivo vazio
+        open(filepath, 'w', encoding='utf-8').close()
+
     with open(filepath, 'r', encoding='utf-8') as f:
         lines = f.readlines()
 
-    # Regex agora captura a letra da coluna separada do número da linha
-    re_string = re.compile(r'rightstring ([A-Z]+)(\d+) = "(.*)"')
-    re_val = re.compile(r'let ([A-Z]+)(\d+) = ([\d\.]+)')
+    # Suporta rightstring, leftstring, label e centered
+    re_string = re.compile(r'(?:rightstring|leftstring|label|centered)\s+([A-Z]+)(\d+)\s*=\s*"(.*)"')
+    # Suporta números positivos e negativos
+    re_val = re.compile(r'let\s+([A-Z]+)(\d+)\s*=\s*(-?[\d\.]+)')
     
     state = {'strings': {}, 'values': {}, 'lines': lines}
     
@@ -35,32 +60,26 @@ def get_category_columns(state):
     cat_map = {}
     for (col, row), data in state['strings'].items():
         if row == 0 and data['val'].lower() != "valor":
-            # Remove o '_' do início (se houver) e deixa tudo maiúsculo para padronizar
-            clean_name = data['val'].lstrip('_').upper()
+            clean_name = data['val'].strip().lstrip('_').upper()
             cat_map[clean_name] = col
     return cat_map
-
-def next_col(col_letter):
-    """Pula para a próxima coluna (ex: de E para F) para colocar o valor."""
-    return chr(ord(col_letter) + 1)
 
 def main(sc_file, csv_file):
     state = parse_sc_file(sc_file)
     lines = state['lines']
     
-    # Dicionário: {'RECEITAS': 'A', 'DESPESAS FIXAS': 'C', 'COMIDA': 'E', ...}
     cat_columns = get_category_columns(state)
     
     try:
         with open(csv_file, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
-                item = row['Item']
-                categoria = row['Categoria'].upper()
+                item = row['Item'].strip()
+                categoria = row['Categoria'].strip().lstrip('_').upper()
                 valor = float(row['Valor'])
                 
                 if categoria not in cat_columns:
-                    print(f"Aviso: Categoria '{categoria}' não achada na linha 0. Pulando {item}.")
+                    print(f"Aviso: Categoria '{categoria}' não encontrada na linha 0. Pulando {item}.")
                     continue
                     
                 col_item = cat_columns[categoria]
@@ -83,12 +102,13 @@ def main(sc_file, csv_file):
                         lines[line_idx] = f"let {col_valor}{item_found_row} = {new_val:.2f}\n"
                     else:
                         lines.append(f"let {col_valor}{item_found_row} = {new_val:.2f}\n")
+                        line_idx = len(lines) - 1
                     
-                    state['values'][(col_valor, item_found_row)] = {'val': new_val, 'line_idx': -1}
+                    state['values'][(col_valor, item_found_row)] = {'val': new_val, 'line_idx': line_idx}
                     print(f"Atualizado: {item} ({col_item}{item_found_row}) -> R$ {new_val:.2f}")
                     
                 else:
-                    # Acha a primeira linha vazia (buraco) na coluna da categoria
+                    # Acha a primeira linha vazia na coluna da categoria
                     empty_row = None
                     for r in range(1, 25):
                         if (col_item, r) not in state['strings']:
@@ -97,48 +117,37 @@ def main(sc_file, csv_file):
                             
                     if empty_row:
                         lines.append(f'rightstring {col_item}{empty_row} = "{item}"\n')
+                        str_idx = len(lines) - 1
                         lines.append(f"let {col_valor}{empty_row} = {valor:.2f}\n")
+                        val_idx = len(lines) - 1
                         
-                        state['strings'][(col_item, empty_row)] = {'val': item, 'line_idx': -1}
-                        state['values'][(col_valor, empty_row)] = {'val': valor, 'line_idx': -1}
+                        state['strings'][(col_item, empty_row)] = {'val': item, 'line_idx': str_idx}
+                        state['values'][(col_valor, empty_row)] = {'val': valor, 'line_idx': val_idx}
                         print(f"Novo item adicionado: {item} na célula {col_item}{empty_row}")
                     else:
                         print(f"Erro: Coluna {col_item} cheia! O limite é a linha 24 para o item {item}.")
                         
     except FileNotFoundError:
         print(f"Arquivo não encontrado: {csv_file}")
+        return
 
     # Salva o arquivo final
     with open(sc_file, 'w', encoding='utf-8') as f:
         f.writelines(lines)
-    print("Merge concluído!")
+    print("Merge concluído com sucesso!")
 
 if __name__ == "__main__":
-    import argparse, os
-
-    # Configuração do parser de argumentos
     parser = argparse.ArgumentParser(description="Merge de compras em CSV para a planilha do sc-im.")
-    
-    # Argumento obrigatório para o CSV
-    parser.add_argument(
-        "-c", "--csv_file", 
-        help="Caminho para o arquivo CSV com as novas compras (ex: new/compra.csv)"
-    )
-    
-    # Argumento opcional para o arquivo .sc (caso você tenha planilhas de meses diferentes)
-    parser.add_argument(
-        "-s", "--sc_file", 
-        default="main.sc", 
-        help="Caminho para o arquivo .sc principal (padrão: main.sc)"
-    )
+    parser.add_argument("-c", "--csv_file", required=True, help="Caminho para o arquivo CSV com as novas compras")
+    parser.add_argument("-s", "--sc_file", default="main.sc", help="Caminho para o arquivo .sc principal")
 
-    # Faz o parse dos argumentos digitados no terminal
     args = parser.parse_args()
 
-    # Sobrescreve as variáveis globais usadas pela função main()
-    sc_file = args.sc_file
-    csv_file = args.csv_file
-
-    main(sc_file, csv_file)
-    os.replace(csv_file, csv_file.replace('new/', 'merged/'))
-    print(f"Arquivo {csv_file} movido para histórico.")
+    main(args.sc_file, args.csv_file)
+    
+    # Move para o histórico garantindo que a pasta destination exista
+    if os.path.exists(args.csv_file):
+        dest_file = args.csv_file.replace('/new/', '/merged/')
+        os.makedirs(os.path.dirname(dest_file), exist_ok=True)
+        os.replace(args.csv_file, dest_file)
+        print(f"Arquivo {args.csv_file} movido para {dest_file}.")
