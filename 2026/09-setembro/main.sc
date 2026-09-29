@@ -55,7 +55,7 @@ let T1 = 30
 rightstring A2 = "DESPESAS FIXAS"
 let B2 = @sum(F1:F50)
 rightstring E2 = "Imposto PJ"
-let F2 = 86.05
+let F2 = 88.04
 rightstring G2 = "Tomate"
 let H2 = 7.91
 rightstring M2 = "Ônibus"
@@ -98,5 +98,5 @@ rightstring G9 = "Lanche"
 let H9 = 30.25
 rightstring A11 = "investimento"
 let B11 = B1-@sum(B2:B10)
-goto B11
+goto G4
 movetosheet "Sheet1"
