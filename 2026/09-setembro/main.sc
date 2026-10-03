@@ -3,7 +3,7 @@
 
 newsheet "Sheet1"
 movetosheet "Sheet1"
-offscr_sc_cols 11
+offscr_sc_cols 0
 offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
@@ -37,7 +37,7 @@ rightstring R0 = "valor"
 rightstring S0 = "RECARGAS"
 rightstring T0 = "valor"
 rightstring U0 = "CASA"
-rightstring V0 = "VESTUÁRIO"
+rightstring W0 = "VESTUÁRIO"
 rightstring A1 = "RECEITAS"
 let B1 = @sum(D1:D50)
 rightstring C1 = "Salário"
@@ -46,6 +46,7 @@ rightstring E1 = "Aluguel"
 let F1 = 1800
 rightstring G1 = "Alface"
 let H1 = 0
+let J1 = 6.99
 rightstring M1 = "Uber"
 let N1 = 22
 rightstring O1 = "Caderno"
@@ -54,20 +55,35 @@ rightstring Q1 = "Baralhos (lenormand + comum)"
 let R1 = 41.89
 rightstring S1 = "(92) 99987-0831"
 let T1 = 30
+rightstring U1 = "Fósforo Fiat Lux"
+let V1 = 4.99
+rightstring W1 = "Meias"
+let X1 = 15
 rightstring A2 = "DESPESAS FIXAS"
 let B2 = @sum(F1:F50)
 rightstring E2 = "Imposto PJ"
 let F2 = 88.04
 rightstring G2 = "Tomate"
 let H2 = 7.91
+let J2 = 14.89
 rightstring M2 = "Ônibus"
 let N2 = 102.5
+rightstring Q2 = "Antena de computador"
+let R2 = 10
+rightstring U2 = "Naftalina Rubi"
+let V2 = 2.49
 rightstring A3 = "COMIDA"
 let B3 = @sum(H1:H50)
 rightstring E3 = "Balé"
 let F3 = 260
 rightstring G3 = "Pão Francês"
 let H3 = 3.06
+rightstring M3 = "volta do trabalho"
+let N3 = 8.98
+rightstring Q3 = "Cabo de Rede"
+let R3 = 15
+rightstring U3 = "Água Sanitária"
+let V3 = 1.99
 rightstring A4 = "LIMPEZA"
 let B4 = @sum(J1:J50)
 rightstring E4 = "Terapia"
@@ -89,16 +105,56 @@ let H6 = 5.61
 rightstring A7 = "PAPELARIA"
 let B7 = @sum(P1:P50)
 rightstring G7 = "Ovo Branco 30und"
-let H7 = 18.99
+let H7 = 18.99+17.9
 rightstring A8 = "PONTUAIS"
-let B8 = 0
+let B8 = @sum(R1:R50)
 rightstring G8 = "Coxa de Frango Sadia"
 let H8 = 35.97
 rightstring A9 = "RECARGAS"
 let B9 = @sum(T1:T50)
 rightstring G9 = "Lanche"
 let H9 = 30.25
-rightstring A11 = "investimento"
-let B11 = B1-@sum(B2:B10)
-goto U0
+rightstring A10 = "CASA"
+let B10 = @sum(V1:V50)
+rightstring G10 = "Sobrecoxa de Frango Sadia"
+let H10 = 49.95
+rightstring A11 = "VESTUÀRIO"
+let B11 = @sum(X1:X50)
+rightstring G11 = "Filé de Peito Seara"
+let H11 = 18.99
+rightstring G12 = "Pão Sírio"
+let H12 = 6.15
+rightstring G13 = "Goma de Tapioca"
+let H13 = 8.99
+rightstring A14 = "investimento"
+let B14 = B1-@sum(B2:B13)
+rightstring G14 = "Creme Vegetal Tayná"
+let H14 = 17.99
+rightstring G15 = "Colorau"
+let H15 = 1.69
+rightstring G16 = "Ovo de Galinha"
+let H16 = 18.99
+rightstring G17 = "Filé de Peito de Frango Sadia"
+let H17 = 17.99
+rightstring G18 = "Coxa e Sobrecoxa de Frango"
+let H18 = 43.58
+rightstring G19 = "Refeição"
+let H19 = 38
+rightstring G20 = "Acelga"
+let H20 = 16.89
+rightstring G21 = "Gelatina"
+let H21 = 5.67
+rightstring G22 = "Farinha de Mandioca"
+let H22 = 12.3
+rightstring G23 = "Pipoca de Microondas"
+let H23 = 4.49
+rightstring G24 = "Arroz Branco"
+let H24 = 7.38
+rightstring G25 = "Atacadao?"
+let H25 = 35.82
+rightstring G26 = "Prato de comida"
+let H26 = 18
+rightstring G27 = "Garrafão de Água 20L"
+let H27 = 40
+goto A6
 movetosheet "Sheet1"
