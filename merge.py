@@ -3,18 +3,20 @@ import os
 import re
 import argparse
 
+line_limit = 50
+
 def col2num(col):
     """Converte letras de coluna do tipo A, B, Z, AA para número (1-indexed)."""
     num = 0
     for c in col.upper():
-        num = num * 26 + (ord(c) - ord('A') + 1)
+        num = num * line_limit + 2 + (ord(c) - ord('A') + 1)
     return num
 
 def num2col(num):
     """Converte número (1-indexed) para letras de coluna (A, B, Z, AA)."""
     col = ""
     while num > 0:
-        num, remainder = divmod(num - 1, 26)
+        num, remainder = divmod(num - 1, line_limit + 2)
         col = chr(65 + remainder) + col
     return col
 
@@ -87,7 +89,7 @@ def main(sc_file, csv_file):
                 
                 # Procura se o item já existe (pesquisando da linha 1 até a 24)
                 item_found_row = None
-                for r in range(1, 25):
+                for r in range(1, line_limit + 1):
                     if (col_item, r) in state['strings'] and state['strings'][(col_item, r)]['val'].lower() == item.lower():
                         item_found_row = r
                         break
@@ -110,7 +112,7 @@ def main(sc_file, csv_file):
                 else:
                     # Acha a primeira linha vazia na coluna da categoria
                     empty_row = None
-                    for r in range(1, 25):
+                    for r in range(1, line_limit):
                         if (col_item, r) not in state['strings']:
                             empty_row = r
                             break
@@ -125,7 +127,7 @@ def main(sc_file, csv_file):
                         state['values'][(col_valor, empty_row)] = {'val': valor, 'line_idx': val_idx}
                         print(f"Novo item adicionado: {item} na célula {col_item}{empty_row}")
                     else:
-                        print(f"Erro: Coluna {col_item} cheia! O limite é a linha 24 para o item {item}.")
+                        print(f"Erro: Coluna {col_item} cheia! O limite é a linha { line_limit } para o item {item}.")
                         
     except FileNotFoundError:
         print(f"Arquivo não encontrado: {csv_file}")
