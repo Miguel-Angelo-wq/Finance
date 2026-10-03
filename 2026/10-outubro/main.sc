@@ -3,7 +3,7 @@
 
 newsheet "Sheet1"
 movetosheet "Sheet1"
-offscr_sc_cols 5
+offscr_sc_cols 0
 offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
@@ -34,8 +34,6 @@ rightstring O0 = "PAPELARIA"
 rightstring P0 = "valor"
 rightstring Q0 = "PONTUAIS"
 rightstring R0 = "valor"
-rightstring S0 = "RECARGAS"
-rightstring T0 = "valor"
 rightstring A1 = "RECEITAS"
 let B1 = @sum(D1:D50)
 rightstring C1 = "Salário"
@@ -45,33 +43,29 @@ let F1 = 1800
 rightstring G1 = "Alface"
 let H1 = 0
 rightstring M1 = "Uber"
-let N1 = 22
+let N1 = 0
 rightstring O1 = "Caderno"
 let P1 = 0
-rightstring Q1 = "Baralhos (lenormand + comum)"
-let R1 = 41.89
-rightstring S1 = "(92) 99987-0831"
-let T1 = 30
 rightstring A2 = "DESPESAS FIXAS"
 let B2 = @sum(F1:F50)
 rightstring E2 = "Imposto PJ"
-let F2 = 88.04
+let F2 = 86.05
 rightstring G2 = "Tomate"
-let H2 = 7.91
+let H2 = 0
 rightstring M2 = "Ônibus"
-let N2 = 102.5
+let N2 = 0
 rightstring A3 = "COMIDA"
 let B3 = @sum(H1:H50)
 rightstring E3 = "Balé"
 let F3 = 260
 rightstring G3 = "Pão Francês"
-let H3 = 3.06
+let H3 = 0
 rightstring A4 = "LIMPEZA"
 let B4 = @sum(J1:J50)
 rightstring E4 = "Terapia"
-let F4 = 100
+let F4 = 0
 rightstring G4 = "Coxa-Sobrecoxa (Baratão)"
-let H4 = 29.51
+let H4 = 0
 rightstring A5 = "HIGIENE"
 let B5 = @sum(L1:L50)
 rightstring E5 = "Energia"
@@ -82,21 +76,11 @@ rightstring A6 = "TRANSPORTE"
 let B6 = @sum(N1:N50)
 rightstring E6 = "Fundo multa aluguel"
 let F6 = 0
-rightstring G6 = "Pão Ciabata"
-let H6 = 5.61
 rightstring A7 = "PAPELARIA"
 let B7 = @sum(P1:P50)
-rightstring G7 = "Ovo Branco 30und"
-let H7 = 18.99
 rightstring A8 = "PONTUAIS"
 let B8 = 0
-rightstring G8 = "Coxa de Frango Sadia"
-let H8 = 35.97
-rightstring A9 = "RECARGAS"
-let B9 = @sum(T1:T50)
-rightstring G9 = "Lanche"
-let H9 = 30.25
 rightstring A11 = "investimento"
 let B11 = B1-@sum(B2:B10)
-goto P0
+goto A4
 movetosheet "Sheet1"
