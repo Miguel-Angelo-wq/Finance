@@ -9,7 +9,7 @@ def col2num(col):
     """Converte letras de coluna do tipo A, B, Z, AA para número (1-indexed)."""
     num = 0
     for c in col.upper():
-        num = num * line_limit + 2 + (ord(c) - ord('A') + 1)
+        num = num * ( line_limit + 2 ) + (ord(c) - ord('A') + 1)
     return num
 
 def num2col(num):
@@ -87,7 +87,7 @@ def main(sc_file, csv_file):
                 col_item = cat_columns[categoria]
                 col_valor = next_col(col_item)
                 
-                # Procura se o item já existe (pesquisando da linha 1 até a 24)
+                # Procura se o item já existe (pesquisando da linha 1 até a line_limit)
                 item_found_row = None
                 for r in range(1, line_limit + 1):
                     if (col_item, r) in state['strings'] and state['strings'][(col_item, r)]['val'].lower() == item.lower():
