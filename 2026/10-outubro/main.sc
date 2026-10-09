@@ -34,6 +34,8 @@ rightstring O0 = "PAPELARIA"
 rightstring P0 = "valor"
 rightstring Q0 = "PONTUAIS"
 rightstring R0 = "valor"
+rightstring S0 = "FARMÁCIA"
+rightstring T0 = "valor"
 rightstring A1 = "RECEITAS"
 let B1 = @sum(D1:D50)
 rightstring C1 = "Salário"
@@ -80,7 +82,9 @@ rightstring A7 = "PAPELARIA"
 let B7 = @sum(P1:P50)
 rightstring A8 = "PONTUAIS"
 let B8 = 0
+rightstring A9 = "FARMÁCIA"
+let B9 = @sum(S1:S50)
 rightstring A11 = "investimento"
 let B11 = B1-@sum(B2:B10)
-goto A4
+goto A9
 movetosheet "Sheet1"
