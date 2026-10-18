@@ -93,7 +93,7 @@ let H4 = 29.51
 rightstring A5 = "HIGIENE"
 let B5 = @sum(L1:L50)
 rightstring E5 = "Energia"
-let F5 = 0
+let F5 = 136.2
 rightstring G5 = "Colorau (Baratão)"
 let H5 = 0
 rightstring A6 = "TRANSPORTE"
@@ -156,5 +156,5 @@ rightstring G26 = "Prato de comida"
 let H26 = 18
 rightstring G27 = "Garrafão de Água 20L"
 let H27 = 40
-goto A6
+goto A9
 movetosheet "Sheet1"
