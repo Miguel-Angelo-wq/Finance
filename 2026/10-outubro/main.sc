@@ -3,7 +3,7 @@
 
 newsheet "Sheet1"
 movetosheet "Sheet1"
-offscr_sc_cols 10
+offscr_sc_cols 15
 offscr_sc_rows 0
 nb_frozen_rows 0
 nb_frozen_cols 0
@@ -58,8 +58,6 @@ rightstring G2 = "Tomate"
 let H2 = 0
 rightstring M2 = "Ônibus"
 let N2 = 0
-rightstring Q2 = "Baratao (nota perdida)"
-let R2 = 71.89
 rightstring A3 = "COMIDA"
 let B3 = @sum(H1:H50)
 rightstring E3 = "Balé"
@@ -90,5 +88,5 @@ rightstring A9 = "FARMÁCIA"
 let B9 = @sum(S1:S50)
 rightstring A11 = "investimento"
 let B11 = B1-@sum(B2:B10)
-goto U9
+goto Q2
 movetosheet "Sheet1"
